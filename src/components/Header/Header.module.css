@@ -1,0 +1,21 @@
+.header {
+    background-color: lightskyblue;
+}
+
+.header_inner {
+    position: relative;
+}
+
+.header_logo {
+    width: 100px;
+}
+
+.header_logo_title {
+    position: absolute;
+    display: inline-block;
+    margin-left: 3rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    top: 19px;
+    left: 65px;
+}

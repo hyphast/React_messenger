@@ -1,0 +1,18 @@
+.navBar_inner {
+    background-color:lightslategrey;
+    width: 180px;
+    text-align: center;
+    padding-bottom: 270px;
+}
+
+.navBar_menu {
+    font-size: 1.5rem;
+}
+
+ul li + li {
+    margin-top: 1rem;
+}
+
+ul li:last-child {
+    margin-top: 3rem;
+}

@@ -1,9 +1,11 @@
+import NavBarCss from './NavBar.module.css';
+
 const NavBar = () => {
     return (
-        <nav className='navBar'>
+        <nav>
             <div className="container">
-                <div className="navBar_inner">
-                    <ul className='navBar-menu'>
+                <div className={NavBarCss.navBar_inner}>
+                    <ul className={NavBarCss.navBar_menu}>
                         <li><a href='#'>Profile</a></li>
                         <li><a href='#'>Messages</a></li>
                         <li><a href='#'>News</a></li>
