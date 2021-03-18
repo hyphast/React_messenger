@@ -13,6 +13,10 @@ ul li + li {
     margin-top: 1rem;
 }
 
+ul li a.active {
+    color: black;
+}
+
 ul li:last-child {
     margin-top: 3rem;
 }

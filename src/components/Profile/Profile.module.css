@@ -1,0 +1,21 @@
+.profile_top_img {
+    width: 100%;
+}
+
+.profile_inner {
+    display: flex;
+    height: 80px;
+    margin-bottom: 3rem;
+}
+
+.profile_avatar {
+    width: 70px;
+}
+
+.profile_name {
+    font-size: 1rem;
+}
+
+.profile_description {
+    margin-left: 3rem;
+}
