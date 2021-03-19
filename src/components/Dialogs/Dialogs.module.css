@@ -1,0 +1,12 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 20fr 58fr;
+}
+
+.dialogs_item a {
+    color: black;
+}
+
+.messages {
+    border: 1px solid black;
+}
