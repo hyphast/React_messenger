@@ -1,12 +1,46 @@
 .dialogs {
+    border: 2px solid yellow;
+    padding: 1rem;
     display: grid;
-    grid-template-columns: 20fr 58fr;
+    grid-template-columns: 150px 600px;
 }
 
 .dialogs_item a {
     color: black;
 }
 
+.dialog {
+    margin-top: 0.75rem;
+}
+
+.dialog::before {
+    position: relative;
+    top: 7px;
+    left: -5px;
+    display: inline-block;
+    content: '';
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
 .messages {
     border: 1px solid black;
+    max-height: 500px;
+}
+
+.message {
+    margin-top: 0.75rem;
+}
+
+.active {
+    color: gold;
+}
+
+.message_input {
+    margin-top: 20rem;
+    position: absolute;
+    top: 187px;
 }
