@@ -1,0 +1,36 @@
+.users {
+    padding: 0.5rem;
+}
+
+.photo {
+    width: 140px;
+    height: 100px;
+}
+
+.userInner {
+    border: 1px solid black;
+    display: grid;
+    grid-template-areas: "img name loc";
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.userInfo {
+    grid-area: name;
+}
+
+.loc {
+    margin-left: 35rem;
+    grid-area: loc;
+}
+
+.leftInfo {
+    position: relative;
+    grid-area: img;
+}
+
+.btn {
+    width: 65px;
+    position: absolute;
+    top: 79px;
+    left: 70px;
+}
