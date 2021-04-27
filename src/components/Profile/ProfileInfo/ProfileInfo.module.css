@@ -1,6 +1,7 @@
 .profile_top_img {
-    width: 100%;
-    opacity: 70%;
+    background-image: url('https://avatars.mds.yandex.net/get-zen_doc/1916740/pub_5e976c23a7314e64388f6b24_5e9771dbca463d28e140e1ef/scale_1200');
+    width: 1000px;
+    height: 250px;
 }
 
 .profile_inner {
@@ -18,6 +19,7 @@
     width: 85px;
     height: 85px;
     border-radius: 50%;
+    overflow: hidden;;
 }
 
 .profile_name {

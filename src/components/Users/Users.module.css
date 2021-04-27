@@ -1,5 +1,16 @@
 .users {
     padding: 0.5rem;
+    cursor: pointer;
+}
+
+.pagesNum {
+    display: flex;
+    justify-content: space-between;
+    width: 255px;
+}
+
+.users span {
+    margin-left: 0.4rem;
 }
 
 .photo {
@@ -33,4 +44,8 @@
     position: absolute;
     top: 79px;
     left: 70px;
+}
+
+.selectedPage {
+    font-weight: bold;
 }
