@@ -1,28 +1,30 @@
 import './App.css';
-import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
-import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import LoginPage from './components/Login/Login';
 import {BrowserRouter, Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 function App(props) {
   return (
   <BrowserRouter>
     <div className='app-wrapper'>
-      <Header />
+      <HeaderContainer />
       <div className='main container'>
         <NavBar />
-        <Route exact path='/profile' render={() => <Profile /> }/>
-        <Route exact path='/dialogs' render={() => <DialogsContainer />} />
-        <Route exact path='/users' render={() => <UsersContainer />} />
+        <Route path='/profile/:userId?' render={() => <ProfileContainer /> }/>
+        <Route path='/dialogs' render={() => <DialogsContainer />} />
+        <Route path='/users' render={() => <UsersContainer />} />
         <Route exact path='/news' render={() => <News />} />
         <Route exact path='/music' render={() => <Music />} />
         <Route exact path='/settings' render={() => <Settings />}/>
+        <Route exact path='/login' render={() => <LoginPage />}/>
       </div>
     </div>
   </BrowserRouter>
