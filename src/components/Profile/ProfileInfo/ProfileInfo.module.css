@@ -1,29 +1,21 @@
-.profile_top_img {
-    background-image: url('https://avatars.mds.yandex.net/get-zen_doc/1916740/pub_5e976c23a7314e64388f6b24_5e9771dbca463d28e140e1ef/scale_1200');
-    width: 1000px;
-    height: 250px;
-}
-
 .profile_inner {
-    position: relative;
-    background: content-box radial-gradient(crimson, skyblue);
-    top: -74px;
-    left: 0px;
+    padding: 5px;
+    background: white;
     display: flex;
-    height: 80px;
+    height: 215px;
     margin-bottom: 3rem;
     border-radius: 5px;
 }
 
 .profile_avatar {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    overflow: hidden;;
+    padding: 3px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
 }
 
 .profile_name {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 
 .profileInfo {
