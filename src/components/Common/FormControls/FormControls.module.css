@@ -1,0 +1,7 @@
+.error textarea,
+.error input {
+    border: 1px solid red;
+}
+.error span {
+    color: red;
+}
