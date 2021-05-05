@@ -6,7 +6,6 @@ const Header = (props) => {
     <header className={HeaderCss.header}>
       <div className='container'>
         <div className={HeaderCss.header_inner}>
-          <img className={HeaderCss.header_logo} src="https://logomaster.ai/static/media/gallery002.27efc7d2.png" alt="logo"/>
           
           <h1 className={HeaderCss.header_logo_title}>Messenger</h1>
 
