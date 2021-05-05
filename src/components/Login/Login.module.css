@@ -2,6 +2,7 @@
     background-color: white;
     width: 100%;
     margin: 5px;
+    height: 450px;
 }
 
 .loginForm {
@@ -12,7 +13,7 @@
 }
 
 .loginForm h1 {
-    font-size: 2.7rem;
+    font-size: 2.3rem;
     margin-bottom: 1rem;
 }
 

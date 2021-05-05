@@ -10,7 +10,11 @@ import {withAuthRedirect} from "../../hoc/WithAuthRedirect";
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId
-        if (!userId) userId = 16704;
+        if (!userId) {
+            userId = this.props.authorizedUserId;
+            if(!userId)
+                this.props.history.push('/login');
+        }
         this.props.getUserProfile(userId)
         this.props.getUserStatus(userId)
     }
@@ -28,7 +32,9 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
         profile: state.ProfilePage.profile,
         isFetching: state.ProfilePage.isFetching,
-        status: state.ProfilePage.status
+        status: state.ProfilePage.status,
+        isAuth: state.auth.isAuth,
+        authorizedUserId: state.auth.userId
 })
 
 export default compose(

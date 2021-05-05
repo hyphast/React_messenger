@@ -6,6 +6,7 @@ import {Input} from "../Common/FormControls/FormControl";
 import {login} from "../../redux/auth-reducer";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import FormControlCss from './../Common/FormControls/FormControls.module.css';
 
 const maxLength30 = maxLength(30);
 
@@ -19,6 +20,9 @@ const LoginForm = (props) => {
             <label htmlFor="pass">Password</label>
             <Field id={'pass'} validate={[required, maxLength30]} placeholder={'Password'} name={'password'} component={Input} type={'password'}/>
         </div>
+        {props.error && <div className={FormControlCss.formSummaryError}>
+            {props.error}
+        </div> }
         <div>
             <Field id={'rememberMe'} name={'rememberMe'} component={'input'} type={'checkbox'}/>
             <label htmlFor="rememberMe"> Remember Me</label>

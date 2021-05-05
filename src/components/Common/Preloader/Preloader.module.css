@@ -1,5 +1,6 @@
 .preloader {
     margin: 0 auto;
-    position: relative;
+    position: absolute;
     top: 15rem;
+    left: 40rem;
 }
