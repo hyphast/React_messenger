@@ -1,28 +1,41 @@
 .header {
-    background-color: lightskyblue;
+    background-color: white;
+    height: 65px;
 }
 
 .header_inner {
     display: flex;
     justify-content: space-between;
-    position: relative;
-}
-
-.header_logo {
-    width: 100px;
 }
 
 .header_logo_title {
-    position: absolute;
-    display: inline-block;
+    position: relative;
+    top: 10px;
     margin-left: 3rem;
-    font-size: 1.3rem;
+    font-size: 2.1rem;
     font-weight: 400;
-    top: 19px;
-    left: 65px;
 }
 
 .log {
-    font-size: 1.3rem;
+    position: relative;
+    top: 10px;
+    font-size: 1.4rem;
+    color: black;
+}
+
+.log button {
+    position: relative;
+    top: -2px;
+    width: 55px;
+    height: 30px;
+    margin-left: 1rem;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.log button:hover {
+    cursor: pointer;
+    background-color: black;
     color: white;
 }

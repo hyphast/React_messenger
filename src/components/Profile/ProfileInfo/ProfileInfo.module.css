@@ -1,5 +1,5 @@
 .profile_inner {
-    padding: 5px;
+    margin: 5px;
     background: white;
     display: flex;
     height: 215px;
@@ -15,7 +15,7 @@
 }
 
 .profile_name {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
 }
 
 .profileInfo {

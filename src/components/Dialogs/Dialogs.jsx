@@ -9,7 +9,7 @@ import {Textarea} from "../Common/FormControls/FormControl";
 const maxLength10 = maxLength(10);
 
 const AddMessageForm = (props) => {
-    return <form onSubmit={props.handleSubmit}>
+    return <form className={DialogsCss.form} onSubmit={props.handleSubmit}>
         <Field validate={[maxLength10]} placeholder='Введите сообение' cols='70' component={Textarea} name={'message'}/>
         <button>Send</button>
     </form>
@@ -25,21 +25,20 @@ const Dialogs = (props) => {
         props.newMessage(formData.message);
     }
 
-    return (
+    return (<div className={DialogsCss.wrapper}>
         <div className={DialogsCss.dialogs}>
             <div className={DialogsCss.dialogs_item}>
                 { dialogsElements }
             </div>
+        </div>
+        <div className={DialogsCss.messages}>
+            { messagesElements }
 
-            <div className={DialogsCss.messages}>
-                { messagesElements }
-
-                <div className={DialogsCss.message_input}>
-                    <AddMessageFormRedux onSubmit={onNewMessage}/>
-                </div>
+            <div className={DialogsCss.message_input}>
+                <AddMessageFormRedux onSubmit={onNewMessage}/>
             </div>
         </div>
-    )
+    </div>)
 }
 
 export default Dialogs;

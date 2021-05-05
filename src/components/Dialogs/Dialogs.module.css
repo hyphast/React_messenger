@@ -1,8 +1,12 @@
+.wrapper {
+    padding: 5px;
+    display: flex;
+    height: 32rem;
+}
+
 .dialogs {
-    border: 2px solid yellow;
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: 150px 600px;
+    background-color: white;
+    width: 12rem;
 }
 
 .dialogs_item a {
@@ -11,12 +15,13 @@
 
 .dialog {
     margin-top: 0.75rem;
+    margin-left: 1rem;
 }
 
 .dialog::before {
     position: relative;
     top: 7px;
-    left: -5px;
+    left: -4px;
     display: inline-block;
     content: '';
     background-color: white;
@@ -27,20 +32,37 @@
 }
 
 .messages {
-    border: 1px solid black;
-    max-height: 500px;
+    position: relative;
+    width: 800px;
+    background-color: white;
+    margin-left: 5px;
 }
 
 .message {
-    margin-top: 0.75rem;
-}
-
-.active {
-    color: gold;
+    margin: 0.75rem;
 }
 
 .message_input {
-    margin-top: 20rem;
+    padding: 5px;
     position: absolute;
-    top: 187px;
+    left: 0;
+    bottom: 0;
+}
+
+.form {
+    display: flex;
+}
+
+.form button {
+    width: 70px;
+    margin-left: 1rem;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.form button:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }

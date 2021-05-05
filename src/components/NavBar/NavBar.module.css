@@ -1,12 +1,12 @@
 .navBar_inner {
-    background-color:lightslategrey;
+    padding: 5px;
+    background-color: #f1f1f1;
     width: 180px;
     text-align: center;
-    padding-bottom: 270px;
 }
 
 .navBar_menu {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 ul li + li {
@@ -14,7 +14,7 @@ ul li + li {
 }
 
 ul li a.active {
-    color: black;
+   font-weight: bold
 }
 
 ul li:last-child {
