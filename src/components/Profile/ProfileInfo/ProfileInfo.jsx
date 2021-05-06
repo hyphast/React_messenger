@@ -1,6 +1,6 @@
 import ProfileInfoCss from './ProfileInfo.module.css';
 import anon_ava from '../../../assets/images/anon_ava.jpg';
-import {UserStatus} from "./UserStatus";
+import {UserStatusWithHooks} from "./UserStatusWithHooks";
 
 const ProfileInfo = (props) => {
 
@@ -11,7 +11,7 @@ const ProfileInfo = (props) => {
 
                 <div className={ProfileInfoCss.profileInfo}>
                     <h4 className={ProfileInfoCss.profile_name}>{props.profile.fullName}</h4>
-                    <UserStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
+                    <UserStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
                 </div>
             </div>
         </div>
