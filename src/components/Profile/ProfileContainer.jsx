@@ -29,14 +29,15 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state) => {
+    return {
         profile: state.ProfilePage.profile,
         isFetching: state.ProfilePage.isFetching,
         status: state.ProfilePage.status,
         isAuth: state.auth.isAuth,
         authorizedUserId: state.auth.userId
-})
-
+    }
+}
 export default compose(
     withAuthRedirect,
     withRouter,

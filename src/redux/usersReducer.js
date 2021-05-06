@@ -14,7 +14,7 @@ let stateInitial = {
     totalUsersCount: 5,
     currentPage: 1,
     isFetching: true,
-    followingInProgress: [],
+    followingInProgress: []
 }
 
 const UsersReducer = (state = stateInitial, action) => {
@@ -23,7 +23,7 @@ const UsersReducer = (state = stateInitial, action) => {
             return {
                 ...state,
                 users: state.users.map(user => {
-                    if (user.id == action.userId) {
+                    if (user.id === action.userId) {
                         return {...user, followed: true,}
                     }
                     return user;
@@ -34,7 +34,7 @@ const UsersReducer = (state = stateInitial, action) => {
             return {
                 ...state,
                 users: state.users.map(user => {
-                    if (user.id == action.userId) {
+                    if (user.id === action.userId) {
                         return {...user, followed: false,}
                     }
                     return user;
@@ -70,12 +70,13 @@ const UsersReducer = (state = stateInitial, action) => {
                 ...state,
                 followingInProgress: action.isFetching
                 ? [...state.followingInProgress, action.userId]
-                : state.followingInProgress.filter(id => id != action.userId)
+                : state.followingInProgress.filter(id => id !== action.userId)
             }
         }
         default: return state;
     }
 }
+
 export const followSuccess = (userId) => {
     return {type: FOLLOW, userId, }
 }
@@ -98,11 +99,11 @@ export const toggleFollowingInProgress = (isFetching, userId) => {
     return {type: TOGGLE_FOLLOWING_IN_PROGRESS, isFetching, userId, }
 }
 
-export const getUsers = (pageSize, currentPage) => {
+export const requestUsers = (pageSize, page) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-        dispatch(setCurrentPage(currentPage));
-        userAPI.getUsers(pageSize, currentPage).then(data => {
+        dispatch(setCurrentPage(page));
+        userAPI.getUsers(pageSize, page).then(data => {
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(data.items));
             dispatch(setUsersTotalCount(data.totalCount));

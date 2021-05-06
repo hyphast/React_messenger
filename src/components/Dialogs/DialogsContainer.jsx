@@ -1,5 +1,4 @@
 import Dialogs from "./Dialogs";
-import React from "react";
 import {addMessage} from "../../redux/dialogPageReducer";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/WithAuthRedirect";
