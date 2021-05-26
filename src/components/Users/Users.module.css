@@ -3,20 +3,6 @@
     cursor: pointer;
 }
 
-.pagesNum {
-    display: flex;
-    justify-content: space-between;
-    width: 255px;
-}
-
-.users span {
-    padding: 3px 3px 0 3px;
-    margin-left: 0.2rem;
-}
-.users span:hover {
-    background-color: black;
-    color: white;
-}
 .photo {
     width: 122px;
     height: 100px;
@@ -59,8 +45,4 @@
     cursor: pointer;
     background-color: black;
     color: white;
-}
-
-.selectedPage {
-    font-weight: bold;
 }

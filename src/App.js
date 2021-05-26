@@ -12,7 +12,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {initializeApp} from "./redux/app-reducer";
+import {initializeApp} from "./redux/appReducer";
 import Preloader from "./components/Common/Preloader/Preloader";
 
 

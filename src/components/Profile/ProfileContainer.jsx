@@ -1,6 +1,6 @@
 import React from 'react'
 import Profile from './Profile';
-import {getUserProfile, getUserStatus, updateUserStatus} from '../../redux/profilePageReducer'
+import {getUserProfile, getUserStatus, updateUserStatus} from '../../redux/profileReducer'
 import {connect} from 'react-redux';
 import Preloader from "../Common/Preloader/Preloader";
 import {withRouter} from "react-router";
