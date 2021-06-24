@@ -1,9 +1,9 @@
 import preloader from '../../../assets/images/preloader.gif'
-import preloaderCss from './Preloader.module.css'
+import PreloaderStyles from './Preloader.module.css'
 
 const Preloader = () => {
     return (
-    <div className={preloaderCss.preloader}>
+    <div className={PreloaderStyles.preloader}>
         <img src={preloader} alt="preloader"/>
     </div>)
 }

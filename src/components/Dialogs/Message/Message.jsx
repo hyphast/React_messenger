@@ -1,8 +1,9 @@
-import DialogsCss from "../Dialogs.module.css";
+import DialogsStyles
+    from "../Dialogs.module.css";
 
 const Message = (props) => {
     return (
-        <div className={DialogsCss.message}>{props.message}</div>
+        <div className={DialogsStyles.message}>{props.message}</div>
     )
 }
 

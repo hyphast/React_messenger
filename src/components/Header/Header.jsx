@@ -1,15 +1,15 @@
-import HeaderCss from './Header.module.css';
+import HeaderStyles from './Header.module.css';
 import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
   return (
-    <header className={HeaderCss.header}>
+    <header className={HeaderStyles.header}>
       <div className='container'>
-        <div className={HeaderCss.header_inner}>
+        <div className={HeaderStyles.header_inner}>
           
-          <h1 className={HeaderCss.header_logo_title}>Messenger</h1>
+          <h1 className={HeaderStyles.header_logo_title}>Messenger</h1>
 
-            <div className={HeaderCss.log}>
+            <div className={HeaderStyles.log}>
                 {props.isAuth ? <div>{props.login}<button onClick={props.logout}>Logout</button></div> :
                     <NavLink to={'/login'}>Login</NavLink>}
             </div>

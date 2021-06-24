@@ -1,4 +1,4 @@
-import MyPostsCss from './MyPosts.module.css';
+import MyPostsStyles from './MyPosts.module.css';
 import Post from "./Post/Post";
 import React from "react";
 import {Field, reduxForm} from "redux-form";
@@ -8,7 +8,7 @@ import {Textarea} from "../../Common/FormControls/FormControl";
 const maxLength10 = maxLength(10);
 
 const AddPostForm = (props) => {
-    return <form className={MyPostsCss.form} onSubmit={props.handleSubmit}>
+    return <form className={MyPostsStyles.form} onSubmit={props.handleSubmit}>
         <Field validate={[maxLength10]} placeholder='Введите текст поста' cols='100' component={Textarea} name={'post'}/>
         <button>Post</button>
     </form>
@@ -25,11 +25,11 @@ const MyPosts = React.memo(props => {
     }
 
     return (
-        <div className={MyPostsCss.MyPosts}>
+        <div className={MyPostsStyles.MyPosts}>
             <h2>My Posts</h2>
             <AddPostFormRedux onSubmit={onAddPost}/>
 
-            <div className={MyPostsCss.posts}>
+            <div className={MyPostsStyles.posts}>
                 {postsElements}
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginCss from './Login.module.css';
-import {Field, reduxForm} from "redux-form";
+import LoginStyles from './Login.module.css';
+import {reduxForm} from "redux-form";
 import {maxLength, required} from "../../Utils/Validators/Validators";
 import {Input} from "../Common/FormControls/FormControl";
 import {login} from "../../redux/authReducer";
@@ -36,8 +36,8 @@ const Login = (props) => {
 
     if(props.isAuth) return <Redirect to={'/profile'}/>
 
-    return <div className={LoginCss.wrapper}>
-        <div className={LoginCss.loginForm}>
+    return <div className={LoginStyles.wrapper}>
+        <div className={LoginStyles.loginForm}>
             <h1>Login</h1>
             <LoginFormRedux onSubmit={onSubmit}/>
         </div>
