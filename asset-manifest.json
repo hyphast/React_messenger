@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/React_messenger/static/css/main.d0a9fb3f.chunk.css",
+    "main.js": "/React_messenger/static/js/main.d8a470cc.chunk.js",
+    "main.js.map": "/React_messenger/static/js/main.d8a470cc.chunk.js.map",
+    "runtime-main.js": "/React_messenger/static/js/runtime-main.7c8d780b.js",
+    "runtime-main.js.map": "/React_messenger/static/js/runtime-main.7c8d780b.js.map",
+    "static/js/2.8c96728e.chunk.js": "/React_messenger/static/js/2.8c96728e.chunk.js",
+    "static/js/2.8c96728e.chunk.js.map": "/React_messenger/static/js/2.8c96728e.chunk.js.map",
+    "static/css/3.2769fe7e.chunk.css": "/React_messenger/static/css/3.2769fe7e.chunk.css",
+    "static/js/3.1a6c87c4.chunk.js": "/React_messenger/static/js/3.1a6c87c4.chunk.js",
+    "static/js/3.1a6c87c4.chunk.js.map": "/React_messenger/static/js/3.1a6c87c4.chunk.js.map",
+    "static/css/4.0f068ab2.chunk.css": "/React_messenger/static/css/4.0f068ab2.chunk.css",
+    "static/js/4.73bbc9b0.chunk.js": "/React_messenger/static/js/4.73bbc9b0.chunk.js",
+    "static/js/4.73bbc9b0.chunk.js.map": "/React_messenger/static/js/4.73bbc9b0.chunk.js.map",
+    "static/css/5.d424880e.chunk.css": "/React_messenger/static/css/5.d424880e.chunk.css",
+    "static/js/5.a44663d7.chunk.js": "/React_messenger/static/js/5.a44663d7.chunk.js",
+    "static/js/5.a44663d7.chunk.js.map": "/React_messenger/static/js/5.a44663d7.chunk.js.map",
+    "static/js/6.82e5f7ca.chunk.js": "/React_messenger/static/js/6.82e5f7ca.chunk.js",
+    "static/js/6.82e5f7ca.chunk.js.map": "/React_messenger/static/js/6.82e5f7ca.chunk.js.map",
+    "index.html": "/React_messenger/index.html",
+    "static/css/3.2769fe7e.chunk.css.map": "/React_messenger/static/css/3.2769fe7e.chunk.css.map",
+    "static/css/4.0f068ab2.chunk.css.map": "/React_messenger/static/css/4.0f068ab2.chunk.css.map",
+    "static/css/5.d424880e.chunk.css.map": "/React_messenger/static/css/5.d424880e.chunk.css.map",
+    "static/css/main.d0a9fb3f.chunk.css.map": "/React_messenger/static/css/main.d0a9fb3f.chunk.css.map",
+    "static/js/2.8c96728e.chunk.js.LICENSE.txt": "/React_messenger/static/js/2.8c96728e.chunk.js.LICENSE.txt",
+    "static/media/preloader.9c9b0abe.gif": "/React_messenger/static/media/preloader.9c9b0abe.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7c8d780b.js",
+    "static/js/2.8c96728e.chunk.js",
+    "static/css/main.d0a9fb3f.chunk.css",
+    "static/js/main.d8a470cc.chunk.js"
+  ]
+}
