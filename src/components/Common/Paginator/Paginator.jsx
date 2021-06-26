@@ -5,23 +5,18 @@ let calcPagesCount = (totalUsersCount, pageSize) => {
     return Math.ceil(totalUsersCount / pageSize);
 }
 
-let setPages = (totalUsersCount, pageSize, currentPage, pagesCount) => {
+let setPages = (totalUItemsCount, pageSize, currentPage, pagesCount) => {
     let pages = [];
 
     let i, n;
-    if (currentPage <= 2) {
-        i = 1;
-        n = 5;
-    } else if (currentPage > 2 && currentPage < pagesCount - 1) {
-        i = currentPage - 2;
-        n = currentPage + 2;
-    } else {
-        i = pagesCount - 4;
-        n = pagesCount;
-    }
+    if (currentPage <= 2) {i = 1;n = 5;}
+    else if (currentPage > 2 && currentPage < pagesCount - 1) {i = currentPage - 2;n = currentPage + 2;}
+    else {i = pagesCount - 4;n = pagesCount;}
+
     for (; i <= n; i++) {
         pages.push(i);
     }
+
     return pages;
 }
 
