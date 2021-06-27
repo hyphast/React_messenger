@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginStyles from './Login.module.css';
+import LoginStyles from './Login.module.scss';
 import {reduxForm} from "redux-form";
 import {maxLength, required} from "../../Utils/Validators/Validators";
 import {Input} from "../Common/FormControls/FormControl";
@@ -7,34 +7,39 @@ import {login} from "../../redux/authReducer";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {createField} from "../Common/FormControls/FormControl";
-import FormControlCss from './../Common/FormControls/FormControls.module.css';
+import FormControlStyles from './../Common/FormControls/FormControls.module.css';
+import Button from "../Common/Button/Button";
 
 const maxLength30 = maxLength(30);
 
-const LoginForm = (props) => {
-    return <form onSubmit={props.handleSubmit}>
+const LoginForm = ({
+   handleSubmit, error
+}) => {
+    return <form onSubmit={handleSubmit}>
         {createField('email', 'Email', 'Email', [required, maxLength30], Input)}
         {createField('password', 'Password', 'Password', [required, maxLength30], Input, {type: 'password'})}
-        {props.error && <div className={FormControlCss.formSummaryError}>
-            {props.error}
+        {error && <div className={FormControlStyles.formSummaryError}>
+            {error}
         </div> }
         <div>
             {createField('rememberMe', '', 'Remember Me', [], 'input', {type: 'checkbox'})}
         </div>
         <div>
-            <button>Login</button>
+            <Button className={LoginStyles.btnLoginForm}>Login</Button>
         </div>
     </form>
 }
 
 const LoginFormRedux = reduxForm({form: 'loginForm'})(LoginForm);
 
-const Login = (props) => {
+const Login = ({
+    login, isAuth
+}) => {
     const onSubmit = (values) => {
-        props.login(values.email, values.password, values.rememberMe);
+        login(values.email, values.password, values.rememberMe);
     }
 
-    if(props.isAuth) return <Redirect to={'/profile'}/>
+    if(isAuth) return <Redirect to={'/profile'}/>
 
     return <div className={LoginStyles.wrapper}>
         <div className={LoginStyles.loginForm}>

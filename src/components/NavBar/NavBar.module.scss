@@ -1,0 +1,26 @@
+.navBarInner {
+    padding: 5px;
+    background-color: #f1f1f1;
+    width: 180px;
+    text-align: center;
+}
+
+.navBarMenu {
+    font-size: 1.3rem;
+}
+
+ul {
+    li + li {
+        margin-top: 1rem;
+    }
+
+    li {
+        a.active {
+            font-weight: bold
+        }
+    }
+
+    li:last-child {
+        margin-top: 3rem;
+    }
+}

@@ -7,14 +7,7 @@ const mapStateToProps = (state) => {
         postsData: state.ProfilePage.postsData,
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addPost: (post) => {
-            dispatch(addPost(post));
-        },
-    }
-}
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
+const MyPostsContainer = connect(mapStateToProps, {addPost})(MyPosts)
 
 export default MyPostsContainer;

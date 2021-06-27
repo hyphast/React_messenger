@@ -1,11 +1,13 @@
-import PostCss from './Post.module.css';
+import PostStyles from './Post.module.css';
 import React from "react";
 
-const Post = (props) => {
+const Post = ({
+    post, likesCount
+}) => {
     return (
-        <div className={PostCss.post}>
-            <p>{props.post}</p>
-            <span>Likes: {props.likesCount}</span>
+        <div className={PostStyles.post}>
+            <p>{post}</p>
+            <span>Likes: {likesCount}</span>
         </div>
     )
 }

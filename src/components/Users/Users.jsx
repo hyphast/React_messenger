@@ -1,16 +1,18 @@
 import React from "react";
-import UsersStyles from "./Users.module.css";
+import UsersStyles from "./Users.module.scss";
 import Paginator from "../Common/Paginator/Paginator";
 import User from "./User";
 
-const Users = (props) => {
+const Users = ({
+   totalUsersCount, pageSize, currentPage, onPageChanged, users, followingInProgress, follow, unfollow
+}) => {
     return <div className={UsersStyles.users}>
-        <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize}
-                   currentPage={props.currentPage} onPageChanged={props.onPageChanged}/>
+        <Paginator totalUsersCount={totalUsersCount} pageSize={pageSize}
+                   currentPage={currentPage} onPageChanged={onPageChanged}/>
 
-        {props.users.map(user =>
-            <User user={user} key={user.id} followingInProgress={props.followingInProgress}
-                  follow={props.follow} unfollow={props.unfollow}/>)
+        {users.map(user =>
+            <User user={user} key={user.id} followingInProgress={followingInProgress}
+                  follow={follow} unfollow={unfollow}/>)
         }
     </div>
 }

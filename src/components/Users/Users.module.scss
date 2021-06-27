@@ -1,6 +1,5 @@
 .users {
     padding: 0.5rem;
-    cursor: pointer;
 }
 
 .photo {
@@ -30,19 +29,9 @@
     grid-area: img;
 }
 
-.btn {
+.btnFollow {
     width: 57px;
     position: absolute;
     top: 79px;
     left: 45px;
-    margin-left: 1rem;
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
-}
-
-.btn:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
 }

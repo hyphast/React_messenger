@@ -1,8 +1,8 @@
+import React from "react";
 import {follow, requestUsers} from "../../redux/usersReducer";
 import {unfollow} from "../../redux/usersReducer";
 import Users from "./Users";
 import {connect} from "react-redux";
-import React from "react";
 import Preloader from "../Common/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/WithAuthRedirect";
 import {compose} from "redux";
@@ -26,7 +26,6 @@ class UsersContainer extends React.Component {
         this.props.getUsers(pageSize, pageNumber);
     }
 
-    debugger
     render() {
         return (
             <>

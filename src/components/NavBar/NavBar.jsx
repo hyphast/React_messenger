@@ -1,29 +1,30 @@
-import NavBarCss from './NavBar.module.css';
+import React from "react";
+import NavBarStyles from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
 
 const NavBar = () => {
     return (
         <nav>
             <div className="container">
-                <div className={NavBarCss.navBar_inner}>
-                    <ul className={NavBarCss.navBar_menu}>
+                <div className={NavBarStyles.navBarInner}>
+                    <ul className={NavBarStyles.navBarMenu}>
                         <li>
-                            <NavLink activeClassName={NavBarCss.active} to='/profile'>Profile</NavLink>
+                            <NavLink activeClassName={NavBarStyles.active} to='/profile'>Profile</NavLink>
                         </li>
                         <li>
-                            <NavLink activeClassName={NavBarCss.active} to='/dialogs'>Messages</NavLink>
+                            <NavLink activeClassName={NavBarStyles.active} to='/dialogs'>Messages</NavLink>
                         </li>
                         <li>
-                            <NavLink activeClassName={NavBarCss.active} to='/users'>Users</NavLink>
+                            <NavLink activeClassName={NavBarStyles.active} to='/users'>Users</NavLink>
                         </li>
                         <li>
-                            <NavLink activeClassName={NavBarCss.active} to='/news'>News</NavLink>
+                            <NavLink activeClassName={NavBarStyles.active} to='/news'>News</NavLink>
                         </li>
                         <li>
-                            <NavLink activeClassName={NavBarCss.active} to='/music'>Music</NavLink>
+                            <NavLink activeClassName={NavBarStyles.active} to='/music'>Music</NavLink>
                         </li>
                         <li>
-                            <NavLink activeClassName={NavBarCss.active} to='/settings'>Settings</NavLink>
+                            <NavLink activeClassName={NavBarStyles.active} to='/settings'>Settings</NavLink>
                         </li>
                     </ul>
                 </div>

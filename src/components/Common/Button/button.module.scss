@@ -1,0 +1,19 @@
+.btn{
+    margin-left: 1rem;
+
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 1px solid #555555;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.selected {
+    font-weight: bold;
+    background: black;
+    color: white
+}

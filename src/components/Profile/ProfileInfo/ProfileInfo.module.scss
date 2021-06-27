@@ -1,20 +1,19 @@
-.profile_inner {
-    margin: 5px;
+.profileInner {
+    margin: 5px 5px 5rem 5px;
     background: white;
     display: flex;
     height: 215px;
-    margin-bottom: 3rem;
     border-radius: 5px;
 }
 
-.profile_avatar {
+.profileAvatar {
     padding: 3px;
     width: 200px;
     height: 200px;
     overflow: hidden;
 }
 
-.profile_name {
+.profileName {
     font-size: 1.9rem;
 }
 
@@ -22,7 +21,7 @@
     margin-left: 1rem;
     font-size: 1rem;
 }
-
-.profile_description {
-
+.status {
+    color: #4755cc;
+    cursor: pointer;
 }

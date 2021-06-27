@@ -3,12 +3,12 @@
     height: 65px;
 }
 
-.header_inner {
+.headerInner {
     display: flex;
     justify-content: space-between;
 }
 
-.header_logo_title {
+.headerLogo {
     position: relative;
     top: 10px;
     margin-left: 3rem;
@@ -16,26 +16,22 @@
     font-weight: 400;
 }
 
-.log {
+.headerLeft {
+    display: flex;
+    align-items: center;
     position: relative;
     top: 10px;
-    font-size: 1.4rem;
-    color: black;
 }
 
-.log button {
-    position: relative;
-    top: -2px;
+.log {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.btnLogout {
+    color: black;
     width: 55px;
     height: 30px;
-    margin-left: 1rem;
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
 }
 
-.log button:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
-}
+

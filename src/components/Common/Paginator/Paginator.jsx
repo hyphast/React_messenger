@@ -1,11 +1,12 @@
-import PaginatorStyles from "./Paginator.module.css";
 import React from "react";
+import PaginatorStyles from "./Paginator.module.scss";
+import Button from "../Button/Button";
 
 let calcPagesCount = (totalUsersCount, pageSize) => {
     return Math.ceil(totalUsersCount / pageSize);
 }
 
-let setPages = (totalUItemsCount, pageSize, currentPage, pagesCount) => {
+let setPages = (currentPage, pagesCount) => {
     let pages = [];
 
     let i, n;
@@ -20,18 +21,20 @@ let setPages = (totalUItemsCount, pageSize, currentPage, pagesCount) => {
     return pages;
 }
 
-const Paginator = (props) => {
-    let pagesCount = calcPagesCount(props.totalUsersCount, props.pageSize)
-    let pages = setPages(props.totalUsersCount, props.pageSize, props.currentPage, pagesCount)
+const Paginator = ({
+   totalUsersCount, pageSize, currentPage, onPageChanged
+}) => {
+    let pagesCount = calcPagesCount(totalUsersCount, pageSize)
+    let pages = setPages(currentPage, pagesCount)
     return (
     <div className={PaginatorStyles.pagesNum}>
-            <span onClick={() => {props.onPageChanged(1)}}>←</span>
+            <Button onClick={() => {onPageChanged(1)}}>←</Button>
             {pages.map((p) => {
-                return <span className={props.currentPage === p && PaginatorStyles.selectedPage}
-                             onClick={() => {props.onPageChanged(p)}}>{p} </span>
+                return <Button active={currentPage === p}
+                             onClick={() => {onPageChanged(p)}}>{p} </Button>
                 }
             )}
-            <span onClick={() => {props.onPageChanged(pagesCount)}}>→</span>
+            <Button onClick={() => {onPageChanged(pagesCount)}}>→</Button>
     </div>
     )
 }

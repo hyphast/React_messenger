@@ -9,8 +9,10 @@
     width: 12rem;
 }
 
-.dialogs_item a {
-    color: black;
+.dialogsItem {
+    a {
+        color: black;
+    }
 }
 
 .dialog {
@@ -42,27 +44,9 @@
     margin: 0.75rem;
 }
 
-.message_input {
+.messageInput {
     padding: 5px;
     position: absolute;
     left: 0;
     bottom: 0;
-}
-
-.form {
-    display: flex;
-}
-
-.form button {
-    width: 70px;
-    margin-left: 1rem;
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
-}
-
-.form button:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
 }

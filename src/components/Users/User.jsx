@@ -1,29 +1,32 @@
-import UsersStyles from "./Users.module.css";
+import React from "react";
+import UsersStyles from "./Users.module.scss";
 import {NavLink} from "react-router-dom";
 import user_anon from "../../assets/images/anon_ava.jpg";
-import React from "react";
+import Button from "../Common/Button/Button";
 
-const User = (props) => {
+const User = ({
+    user, followingInProgress, follow, unfollow
+}) => {
    return (
     <div className={UsersStyles.userInner}>
         <div className={UsersStyles.leftInfo}>
-            <NavLink to={'profile/' + props.user.id}>
-                <img className={UsersStyles.photo} src={!props.user.photos.small
+            <NavLink to={'profile/' + user.id}>
+                <img className={UsersStyles.photo} src={!user.photos.small
                     ? user_anon
-                    : props.user.photos.small} alt="user_ava"/>
+                    : user.photos.small} alt="user_ava"/>
             </NavLink>
             <div>
-                {!props.user.followed ? <button disabled={props.followingInProgress.some(id => id === props.user.id)} onClick={() => {
-                        props.follow(props.user.id)
-                    }} className={UsersStyles.btn}>follow</button>
-                    : <button disabled={props.followingInProgress.some(id => id === props.user.id)} onClick={() => {
-                        props.unfollow(props.user.id)
-                    }} className={UsersStyles.btn}>unfollow</button>}
+                {!user.followed ? <Button disabled={followingInProgress.some(id => id === user.id)} onClick={() => {
+                        follow(user.id)
+                    }} className={UsersStyles.btnFollow}>follow</Button>
+                    : <Button disabled={followingInProgress.some(id => id === user.id)} onClick={() => {
+                        unfollow(user.id)
+                    }} className={UsersStyles.btnFollow}>unfollow</Button>}
             </div>
         </div>
         <div className={UsersStyles.userInfo}>
-            <h3>{props.user.name}</h3>
-            <p>{props.user.status}</p>
+            <h3>{user.name}</h3>
+            <p>{user.status}</p>
         </div>
         <div className={UsersStyles.loc}>
             <p>{"user.location.country"}</p>

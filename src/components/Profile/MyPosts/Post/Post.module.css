@@ -1,7 +1,6 @@
 .post {
     padding: 10px;
-    margin-top: 0.75rem;
-    margin-bottom: 0.5rem;
-    background-color: white;
+    margin: 0.75rem 0 0.5rem 0;
+    background-color: #e0e0e0;
     border-radius: 10px;
 }
