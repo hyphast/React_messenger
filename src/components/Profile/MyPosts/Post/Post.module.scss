@@ -1,0 +1,39 @@
+.post {
+    padding: 10px;
+    margin: 0rem 0 0.5rem 0;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+.post {
+    p{
+        margin-bottom: 14px;
+    }
+}
+
+.photo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.headerPost {
+    padding: 2px 0 0 10px;
+    margin: 5px 5px 0 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    .postInfo {
+        margin: 4px 0 0 15px;
+
+        h5 {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #2a58a3;
+            margin-bottom: 1px;
+        }
+
+        span {
+            font-size: 0.9rem;
+        }
+    }
+}

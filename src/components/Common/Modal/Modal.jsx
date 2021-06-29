@@ -1,5 +1,5 @@
 import React from "react";
-import modalStyles from "./Modal.module.css";
+import modalStyles from "./Modal.module.scss";
 
 export const Modal = ({
     title, isOpen, onCancel, onSubmit, children

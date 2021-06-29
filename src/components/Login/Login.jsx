@@ -7,7 +7,7 @@ import {login} from "../../redux/authReducer";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {createField} from "../Common/FormControls/FormControl";
-import FormControlStyles from './../Common/FormControls/FormControls.module.css';
+import FormControlStyles from '../Common/FormControls/FormControls.module.scss';
 import Button from "../Common/Button/Button";
 
 const maxLength30 = maxLength(30);

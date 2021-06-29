@@ -5,12 +5,13 @@ import {maxLength} from "../../../Utils/Validators/Validators";
 import {Textarea} from "../../Common/FormControls/FormControl";
 import Button from "../../Common/Button/Button";
 import MyPostsStyles from "./MyPosts.module.scss";
+import classname from "classnames";
 
-const maxLength10 = maxLength(10);
+const maxLength40 = maxLength(40);
 
 const AddPostForm = (props) => {
-    return <form className='d-flex' onSubmit={props.handleSubmit}>
-        <Field validate={[maxLength10]} placeholder='Введите текст поста' cols='100' component={Textarea} name={'post'}/>
+    return <form className={classname('d-flex', MyPostsStyles.form)} onSubmit={props.handleSubmit}>
+        <Field validate={[maxLength40]} placeholder='Введите текст поста' cols='100' component={Textarea} name={'post'}/>
         <Button style={{width: '70px', height: '35px'}}>Post</Button>
     </form>
 }
@@ -18,11 +19,16 @@ const AddPostForm = (props) => {
 const AddPostFormRedux = reduxForm({form: 'AddPostForm'})(AddPostForm);
 
 const MyPosts = React.memo(props => {
-    let postsElements = props.postsData.map(p => <Post key={p.id} post={p.post} likesCount={p.likesCount}/>)
-
     let onAddPost = (formData) => {
         props.addPost(formData.post);
     }
+
+    let postsElements = props.postsData.map(p =>
+        <Post idPost={p.id} key={p.id} post={p.post}
+              likesCount={p.likesCount} setLike={props.setLike}
+              isLiked={p.liked} profile={props.profile}
+              date ={p.date}
+        />)
 
     return (
         <div className={MyPostsStyles.myPosts}>

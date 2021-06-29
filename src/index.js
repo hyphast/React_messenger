@@ -6,7 +6,7 @@ import store from './redux/reduxStore'
 import App from "./App";
 import {Provider} from "react-redux";
 import {HashRouter} from "react-router-dom";
-import 'macro-css'
+import 'macro-css';
 
 ReactDOM.render(
     <HashRouter>

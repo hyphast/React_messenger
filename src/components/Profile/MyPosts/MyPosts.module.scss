@@ -3,4 +3,16 @@
         font-size: 1.8rem;
         margin-bottom: 0.7rem;
     }
+    .form {
+        textarea {
+            resize: none;
+            padding: 7px 14px;
+            border: 2px solid #ccc;
+        }
+
+        button {
+            position: relative;
+            top: 6px;
+        }
+    }
 }
