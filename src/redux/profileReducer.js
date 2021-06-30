@@ -1,4 +1,6 @@
-import {profileAPI} from "../api/api";
+import {followAPI, profileAPI} from "../api/api";
+import { DateTime } from "luxon";
+import { nanoid } from 'nanoid'
 
 const ADD_POST = 'profile/ADD_POST';
 const DELETE_POST = 'profile/DELETE_POST';
@@ -6,6 +8,7 @@ const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
 const TOGGLE_IS_FETCHING = 'profile/TOGGLE_IS_FETCHING';
 const SET_USER_STATUS = 'profile/SET_USER_STATUS';
 const SET_LIKE = 'profile/SET_IS_LIKED';
+const SET_FOLLOWING = 'profile/SET_FOLLOWING';
 
 let stateInitial = {
     postsData: [
@@ -15,18 +18,17 @@ let stateInitial = {
     profile: null,
     isFetching: false,
     status: '',
+    isFollowing: false
 }
 
 const profileReducer = (state = stateInitial, action) => {
     switch (action.type) {
         case ADD_POST: {
-            let date = new Date();
-            let hours = date.getHours();
-            let min = date.getMinutes();
+            let dt = DateTime.now();
             let newPost = {
-                id: 4,
+                id: nanoid(10),
                 post: action.post,
-                date: `Posted: ${hours}:${min}`,
+                date: dt,
                 likesCount: 0,
                 liked: false
             };
@@ -57,6 +59,12 @@ const profileReducer = (state = stateInitial, action) => {
             return {
                 ...state,
                 status: action.status,
+            };
+        }
+        case SET_FOLLOWING: {
+            return {
+                ...state,
+                isFollowing: action.isFollowing,
             };
         }
         case SET_LIKE: {
@@ -99,6 +107,9 @@ export const setUserStatus = (status) => {
 export const setLike = (isLiked, postId, likes) => {
     return {type: SET_LIKE, isLiked, postId, likes}
 }
+export const setFollowing = (isFollowing) => {
+    return {type: SET_FOLLOWING, isFollowing}
+}
 
 export const getUserProfile = (userId) =>
     async (dispatch) => {
@@ -107,7 +118,6 @@ export const getUserProfile = (userId) =>
         dispatch(toggleIsFetching(false));
         dispatch(setUserProfile(data));
     }
-
 
 export const getUserStatus = (userId) =>
     async (dispatch) => {
@@ -121,6 +131,29 @@ export const updateUserStatus = (status) =>
         if (data.resultCode === 0) {
             dispatch(setUserStatus(status));
         }
-}
+    }
+
+export const getUserFollowing = (userId) =>
+    async (dispatch) => {
+        const data = await followAPI.isFollowing(userId)
+        dispatch(setFollowing(data))
+    }
+
+export const setUserFollow = (userId) =>
+    async (dispatch) => {
+        const data = await followAPI.setFollow(userId)
+        if(data.resultCode === 0) {
+            dispatch(setFollowing(true))
+        }
+    }
+
+export const setUserUnfollow = (userId) =>
+    async (dispatch) => {
+        const data = await followAPI.setUnfollow(userId)
+        if(data.resultCode === 0) {
+            dispatch(setFollowing(false))
+        }
+    }
+
 
 export default profileReducer;

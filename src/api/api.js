@@ -3,7 +3,7 @@ import * as axios from "axios";
 const instance = axios.create({
     withCredentials: true,
     headers: {
-        'API-KEY': 'eac5f45f-896f-4c20-99d7-f0286a193cbb',
+        'API-KEY': '063e79e1-62a7-4390-b59e-d524e6f3f202',
     },
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
 })
@@ -13,17 +13,7 @@ export const userAPI = {
         return instance.get(`users?count=${pageSize}&page=${currentPage}`).then(response => {
             return response.data
         })
-    },
-    setFollow(userId) {
-        return instance.post(`follow/${userId}`).then(response => {
-            return response.data
-        })
-    },
-    setUnfollow(userId) {
-        return instance.delete(`follow/${userId}`).then(response => {
-            return response.data
-        })
-    },
+    }
 }
 
 export const profileAPI = {
@@ -57,6 +47,24 @@ export const logAPI = {
     },
     logout() {
         return instance.delete('/auth/login').then(response => {
+            return response.data
+        })
+    }
+}
+
+export const followAPI = {
+    isFollowing(userId) {
+        return instance.get(`follow/${userId}`).then(response => {
+            return response.data;
+        })
+    },
+    setFollow(userId) {
+        return instance.post(`follow/${userId}`).then(response => {
+            return response.data
+        })
+    },
+    setUnfollow(userId) {
+        return instance.delete(`follow/${userId}`).then(response => {
             return response.data
         })
     }

@@ -12,7 +12,7 @@ const maxLength40 = maxLength(40);
 const AddPostForm = (props) => {
     return <form className={classname('d-flex', MyPostsStyles.form)} onSubmit={props.handleSubmit}>
         <Field validate={[maxLength40]} placeholder='Введите текст поста' cols='100' component={Textarea} name={'post'}/>
-        <Button style={{width: '70px', height: '35px'}}>Post</Button>
+        <Button>Post</Button>
     </form>
 }
 

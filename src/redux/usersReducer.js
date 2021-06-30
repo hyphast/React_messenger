@@ -1,4 +1,4 @@
-import {userAPI} from "../api/api";
+import {followAPI, userAPI} from "../api/api";
 import {updateObjectInArray} from "../Utils/objectHelpers";
 
 const FOLLOW = 'users/FOLLOW';
@@ -115,12 +115,12 @@ const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>
 
 export const follow = (userId) =>
     (dispatch) => {
-       followUnfollowFlow(dispatch, userId, userAPI.setFollow.bind(userAPI), followSuccess)
+       followUnfollowFlow(dispatch, userId, followAPI.setFollow.bind(userAPI), followSuccess)
 }
 
 export const unfollow = (userId) =>
     (dispatch) => {
-        followUnfollowFlow(dispatch, userId, userAPI.setUnfollow.bind(userAPI), unfollowSuccess)
+        followUnfollowFlow(dispatch, userId, followAPI.setUnfollow.bind(userAPI), unfollowSuccess)
 }
 
 export default UsersReducer;

@@ -13,7 +13,7 @@
     top: 10px;
     margin-left: 3rem;
     font-size: 2.1rem;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .headerLeft {
@@ -21,6 +21,9 @@
     align-items: center;
     position: relative;
     top: 10px;
+    .signOutIcon {
+        margin-left: 5px;
+    }
 }
 
 .log {
@@ -29,8 +32,14 @@
 }
 
 .btnLogout {
+    display: flex;
+    border-radius: 7px;
+    margin-left: 0.5rem;
+    align-items: center;
+    padding-left: 5px;
+    font-size: 1rem;
     color: black;
-    width: 55px;
+    width: 77px;
     height: 30px;
 }
 

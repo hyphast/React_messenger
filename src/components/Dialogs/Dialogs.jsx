@@ -14,7 +14,7 @@ const AddMessageForm = ({
 }) => {
     return <form className='d-flex' onSubmit={handleSubmit}>
         <Field validate={[maxLength20]} placeholder='Введите сообение' cols='70' component={Textarea} name={'message'}/>
-        <Button style={{width: '70px'}}>Send</Button>
+        <Button className={DialogsStyles.btnSendMsg}>Send</Button>
     </form>
 }
 

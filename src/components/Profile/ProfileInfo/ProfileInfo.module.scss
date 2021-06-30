@@ -1,5 +1,5 @@
 .profileInner {
-    margin: 5px 5px 5rem 5px;
+    margin: 5px 5px 0 5px;
     background: white;
     display: flex;
     height: 215px;
@@ -24,4 +24,12 @@
 .status {
     color: #4755cc;
     cursor: pointer;
+}
+.btnFollowing {
+    margin: 1rem 0 5rem 0.35rem;
+    button {
+        width: 200px;
+        height: 25px;
+        border-radius: 7px;
+    }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import PostStyles from './Post.module.scss';
 import Icon from "../../../Common/Icon/Icon";
+import { DateTime } from "luxon";
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import anon_ava from "../../../../assets/images/anon_ava.jpg";
 import classname from "classnames";
@@ -12,7 +13,6 @@ const Post = ({
     let onLikedAction = () => {
         setLike(!isLiked, idPost, likesCount);
     }
-    debugger
 
     return (
         <>
@@ -20,7 +20,7 @@ const Post = ({
             <img className={PostStyles.photo} src= { !profile.photos.small ? anon_ava : profile.photos.small } alt="photo"/>
             <div className={classname('flex-column', PostStyles.postInfo)}>
                 <h5>{profile.fullName}</h5>
-                <span>{date}</span>
+                <span>{date.toLocaleString(DateTime.DATETIME_MED)}</span>
             </div>
         </div>
         <div className={PostStyles.post}>

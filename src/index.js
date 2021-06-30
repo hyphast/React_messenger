@@ -5,15 +5,15 @@ import reportWebVitals from './reportWebVitals';
 import store from './redux/reduxStore'
 import App from "./App";
 import {Provider} from "react-redux";
-import {HashRouter} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 import 'macro-css';
 
 ReactDOM.render(
-    <HashRouter>
+    <BrowserRouter>
         <Provider store={store}>
             <App />
         </Provider>
-    </HashRouter>,
+    </BrowserRouter>,
     document.getElementById('root')
 );
 

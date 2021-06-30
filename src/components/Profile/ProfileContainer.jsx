@@ -1,6 +1,10 @@
 import React from 'react'
 import Profile from './Profile';
-import {getUserProfile, getUserStatus, updateUserStatus} from '../../redux/profileReducer'
+import {
+    getUserProfile, getUserStatus,
+    updateUserStatus, getUserFollowing,
+    setUserFollow, setUserUnfollow
+} from '../../redux/profileReducer'
 import {connect} from 'react-redux';
 import Preloader from "../Common/Preloader/Preloader";
 import {withRouter} from "react-router";
@@ -17,6 +21,7 @@ class ProfileContainer extends React.Component {
         }
         this.props.getUserProfile(userId)
         this.props.getUserStatus(userId)
+        this.props.getUserFollowing(userId)
     }
 
     render() {
@@ -35,11 +40,15 @@ let mapStateToProps = (state) => {
         isFetching: state.ProfilePage.isFetching,
         status: state.ProfilePage.status,
         isAuth: state.auth.isAuth,
-        authorizedUserId: state.auth.userId
+        authorizedUserId: state.auth.userId,
+        isFollowing: state.ProfilePage.isFollowing
     }
 }
 export default compose(
     withAuthRedirect,
     withRouter,
-    connect(mapStateToProps, {getUserProfile,getUserStatus,updateUserStatus})
+    connect(mapStateToProps, {
+        getUserProfile,getUserStatus,updateUserStatus,
+        getUserFollowing, setUserFollow, setUserUnfollow
+    })
     )(ProfileContainer);
