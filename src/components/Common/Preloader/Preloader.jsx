@@ -5,7 +5,7 @@ import Icon from "../Icon/Icon";
 
 const Preloader = () => {
     return (
-        <Icon className={PreloaderStyles.preloader} name={faSpinner} size='2x' alt="preloader"/>
+        <Icon className={PreloaderStyles.preloader} name={faSpinner} spin size='2x' alt="preloader"/>
     )
 }
 
