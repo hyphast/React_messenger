@@ -1,12 +1,11 @@
 import React from "react";
-import preloader from '../../../assets/images/preloader.gif';
 import PreloaderStyles from './Preloader.module.scss';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import Icon from "../Icon/Icon";
 
 const Preloader = () => {
     return (
-    <div className={PreloaderStyles.preloader}>
-        <img src={preloader} alt="preloader"/>
-    </div>
+        <Icon className={PreloaderStyles.preloader} name={faSpinner} size='2x' alt="preloader"/>
     )
 }
 

@@ -3,6 +3,7 @@ import UsersStyles from "./Users.module.scss";
 import {NavLink} from "react-router-dom";
 import user_anon from "../../assets/images/anon_ava.jpg";
 import Button from "../Common/Button/Button";
+import Image from "../Common/Image/Image";
 
 const User = ({
     user, followingInProgress, follow, unfollow
@@ -11,9 +12,7 @@ const User = ({
     <div className={UsersStyles.userInner}>
         <div className={UsersStyles.leftInfo}>
             <NavLink to={'profile/' + user.id}>
-                <img className={UsersStyles.photo} src={!user.photos.small
-                    ? user_anon
-                    : user.photos.small} alt="user_ava"/>
+                <Image src={!user.photos.small ? user_anon : user.photos.small} alt="user avatar" width={115} height={95}/>
             </NavLink>
             <div>
                 {!user.followed ? <Button disabled={followingInProgress.some(id => id === user.id)} onClick={() => {

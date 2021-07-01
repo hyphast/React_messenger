@@ -3,6 +3,7 @@ import ProfileInfoStyles from './ProfileInfo.module.scss';
 import anon_ava from '../../../assets/images/anon_ava.jpg';
 import {ProfileStatus} from "./ProfileStatus";
 import Button from "../../Common/Button/Button";
+import Image from "../../Common/Image/Image";
 
 const ProfileInfo = ({
     profile, status, updateUserStatus, setUserUnfollow, setUserFollow, isFollowing
@@ -10,7 +11,9 @@ const ProfileInfo = ({
     return (
         <div>
             <div className={ProfileInfoStyles.profileInner}>
-                <img className={ProfileInfoStyles.profileAvatar} src= { (!profile.photos.small || !profile.photos.large) ? anon_ava : profile.photos.large } alt=""/>
+                <Image className={ProfileInfoStyles.profileAvatar}
+                       src= { (!profile.photos.small || !profile.photos.large) ? anon_ava : profile.photos.large }
+                       alt="avatar" width={200} height={200}/>
 
                 <div className={ProfileInfoStyles.profileInfo}>
                     <h4 className={ProfileInfoStyles.profileName}>{profile.fullName}</h4>

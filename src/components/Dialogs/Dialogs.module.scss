@@ -18,19 +18,11 @@
 .dialog {
     margin-top: 0.75rem;
     margin-left: 1rem;
-}
-
-.dialog::before {
-    position: relative;
-    top: 7px;
-    left: -4px;
-    display: inline-block;
-    content: '';
-    background-color: white;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    border: 1px solid black;
+    .photo {
+        position: relative;
+        top: 7px;
+        left: -4px;
+    }
 }
 
 .messages {

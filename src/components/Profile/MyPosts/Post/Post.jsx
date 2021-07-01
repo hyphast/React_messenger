@@ -5,6 +5,7 @@ import { DateTime } from "luxon";
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import anon_ava from "../../../../assets/images/anon_ava.jpg";
 import classname from "classnames";
+import Image from "../../../Common/Image/Image";
 
 const Post = ({
     post, idPost, likesCount, setLike, isLiked, profile, date
@@ -17,7 +18,10 @@ const Post = ({
     return (
         <>
         <div className={classname('d-flex', PostStyles.headerPost)}>
-            <img className={PostStyles.photo} src= { !profile.photos.small ? anon_ava : profile.photos.small } alt="photo"/>
+            <Image className={PostStyles.photo}
+                   src= { !profile.photos.small ? anon_ava : profile.photos.small } alt="photo"
+                   width={45} height={45} circle={true}
+            />
             <div className={classname('flex-column', PostStyles.postInfo)}>
                 <h5>{profile.fullName}</h5>
                 <span>{date.toLocaleString(DateTime.DATETIME_MED)}</span>

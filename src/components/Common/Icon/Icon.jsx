@@ -16,11 +16,11 @@ const Icon = ({
 
     return (
         <FontAwesomeIcon
-            {...attrs}
             className={classes}
             style={color}
             onClick={onClick}
             icon={name}
+            {...attrs}
         />
     );
 };

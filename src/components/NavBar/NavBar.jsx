@@ -1,6 +1,7 @@
 import React from "react";
 import NavBarStyles from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
+import Badge from "../Common/Badge/Badge";
 
 const NavBar = () => {
     return (
@@ -12,7 +13,10 @@ const NavBar = () => {
                             <NavLink activeClassName={NavBarStyles.active} to='/profile'>Profile</NavLink>
                         </li>
                         <li>
-                            <NavLink activeClassName={NavBarStyles.active} to='/dialogs'>Messages</NavLink>
+                            <NavLink activeClassName={NavBarStyles.active} to='/dialogs'>
+                                Messages
+                                <Badge style={{position: 'relative',top: '7px'}} value={3} inline circle/>
+                            </NavLink>
                         </li>
                         <li>
                             <NavLink activeClassName={NavBarStyles.active} to='/users'>Users</NavLink>
