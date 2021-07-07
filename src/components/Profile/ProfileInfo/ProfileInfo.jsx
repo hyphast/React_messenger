@@ -2,12 +2,13 @@ import React from "react";
 import ProfileInfoStyles from './ProfileInfo.module.scss';
 import anon_ava from '../../../assets/images/anon_ava.jpg';
 import {ProfileStatus} from "./ProfileStatus";
-import Button from "../../Common/Button/Button";
 import Image from "../../Common/Image/Image";
+import ProfileActions from "./ProfileActions/ProfileActions";
 
 const ProfileInfo = ({
-    profile, status, updateUserStatus, setUserUnfollow, setUserFollow, isFollowing
+    profile, status, updateUserStatus, isOwner
  }) => {
+
     return (
         <div>
             <div className={ProfileInfoStyles.profileInner}>
@@ -17,15 +18,12 @@ const ProfileInfo = ({
 
                 <div className={ProfileInfoStyles.profileInfo}>
                     <h4 className={ProfileInfoStyles.profileName}>{profile.fullName}</h4>
-                    <ProfileStatus status={status} updateUserStatus={updateUserStatus}/>
+
+                        <ProfileStatus status={status} updateUserStatus={updateUserStatus} isOwner={isOwner}/>
                 </div>
             </div>
-            <div className={ProfileInfoStyles.btnFollowing}>
-                {isFollowing
-                    ? <Button onClick={() => setUserUnfollow(profile.userId)}>unfollow</Button>
-                    : <Button onClick={() => setUserFollow(profile.userId)}>follow</Button>
-                }
-            </div>
+
+            <ProfileActions isOwner={isOwner}/>
         </div>
     )
 }

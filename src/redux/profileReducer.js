@@ -9,6 +9,7 @@ const TOGGLE_IS_FETCHING = 'profile/TOGGLE_IS_FETCHING';
 const SET_USER_STATUS = 'profile/SET_USER_STATUS';
 const SET_LIKE = 'profile/SET_IS_LIKED';
 const SET_FOLLOWING = 'profile/SET_FOLLOWING';
+const SET_PHOTO = 'profile/SET_PHOTO';
 
 let stateInitial = {
     postsData: [
@@ -67,6 +68,12 @@ const profileReducer = (state = stateInitial, action) => {
                 isFollowing: action.isFollowing,
             };
         }
+        case SET_PHOTO: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photo}
+            };
+        }
         case SET_LIKE: {
             let likesCount = action.isLiked ? action.likes + 1 : action.likes - 1;
             return {
@@ -109,6 +116,9 @@ export const setLike = (isLiked, postId, likes) => {
 }
 export const setFollowing = (isFollowing) => {
     return {type: SET_FOLLOWING, isFollowing}
+}
+export const savePhotoSuccess = (photo) => {
+    return {type: SET_PHOTO, photo}
 }
 
 export const getUserProfile = (userId) =>
@@ -155,5 +165,12 @@ export const setUserUnfollow = (userId) =>
         }
     }
 
+export const savePhoto = (photo) =>
+  async (dispatch) => {
+    const data = await profileAPI.savePhoto(photo)
+      if(data.resultCode === 0) {
+          dispatch(savePhotoSuccess(photo))
+      }
+  }
 
 export default profileReducer;

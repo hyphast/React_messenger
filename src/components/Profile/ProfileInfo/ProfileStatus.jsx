@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ProfileInfoStyles from './ProfileInfo.module.scss';
+import ToolTip from "../../Common/ToolTip/ToolTip";
 
 export const ProfileStatus = (props) => {
     let [editMode, setEditMode] = useState(false);
@@ -20,9 +21,22 @@ export const ProfileStatus = (props) => {
         setStatus(e.currentTarget.value)
     }
 
-    return <div>
-        {!editMode && <span onDoubleClick={activateEditMode} className={!props.status && ProfileInfoStyles.status}>
-            {props.status ? props.status : 'Set status'}</span> }
-        {editMode && <input autoFocus={true} onBlur={deactivateEditMode} onChange={onStatusChange} value={status}/>}
-    </div>
+    return (
+      <>
+      {!props.isOwner
+        ? <span className={!props.status && ProfileInfoStyles.status}>props.status</span>
+        :
+        <div>
+            {!editMode
+            ?
+                <ToolTip content='Установить статус' position='bottom'>
+                    <span onClick={activateEditMode} className={!props.status && ProfileInfoStyles.status}>
+                        {props.status ? props.status : 'Set status'}</span>
+                </ToolTip>
+            :
+           <input autoFocus={true} onBlur={deactivateEditMode} onChange={onStatusChange} value={status}/>}
+        </div>
+      }
+    </>
+    )
 }

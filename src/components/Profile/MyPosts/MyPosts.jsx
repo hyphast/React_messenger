@@ -2,10 +2,10 @@ import React from "react";
 import Post from "./Post/Post";
 import {Field, reduxForm} from "redux-form";
 import {maxLength} from "../../../Utils/Validators/Validators";
-import {Textarea} from "../../Common/FormControls/FormControl";
 import Button from "../../Common/Button/Button";
 import MyPostsStyles from "./MyPosts.module.scss";
 import classname from "classnames";
+import {Textarea} from "../../Common/FormControls/FormControl";
 
 const maxLength40 = maxLength(40);
 

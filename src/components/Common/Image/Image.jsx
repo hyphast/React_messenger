@@ -12,6 +12,7 @@ const Image = ({
     }
 
     const classes = classnames(
+        'img',
         className,
         { circle }
     )

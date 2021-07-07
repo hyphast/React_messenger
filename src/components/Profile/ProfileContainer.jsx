@@ -3,7 +3,6 @@ import Profile from './Profile';
 import {
     getUserProfile, getUserStatus,
     updateUserStatus, getUserFollowing,
-    setUserFollow, setUserUnfollow
 } from '../../redux/profileReducer'
 import {connect} from 'react-redux';
 import Preloader from "../Common/Preloader/Preloader";
@@ -12,7 +11,7 @@ import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/WithAuthRedirect";
 
 class ProfileContainer extends React.Component {
-    componentDidMount() {
+    refreshProfile = () => {
         let userId = this.props.match.params.userId
         if (!userId) {
             userId = this.props.authorizedUserId;
@@ -24,11 +23,22 @@ class ProfileContainer extends React.Component {
         this.props.getUserFollowing(userId)
     }
 
+    componentDidMount() {
+        this.refreshProfile();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(this.props.match.params.userId !== prevProps.match.params.userId) {
+            this.refreshProfile();
+        }
+    }
+
+
     render() {
         return (
             <>
                 { (!this.props.profile || this.props.isFetching) ? <Preloader /> :
-               <Profile {...this.props} /> }
+               <Profile {...this.props} isOwner={ !this.props.match.params.userId } /> }
             </>
         )
     }
@@ -39,9 +49,7 @@ let mapStateToProps = (state) => {
         profile: state.ProfilePage.profile,
         isFetching: state.ProfilePage.isFetching,
         status: state.ProfilePage.status,
-        isAuth: state.auth.isAuth,
-        authorizedUserId: state.auth.userId,
-        isFollowing: state.ProfilePage.isFollowing
+        authorizedUserId: state.auth.userId
     }
 }
 export default compose(
@@ -49,6 +57,6 @@ export default compose(
     withRouter,
     connect(mapStateToProps, {
         getUserProfile,getUserStatus,updateUserStatus,
-        getUserFollowing, setUserFollow, setUserUnfollow
+        getUserFollowing
     })
     )(ProfileContainer);

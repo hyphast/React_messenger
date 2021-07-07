@@ -1,13 +1,21 @@
-.error {
-    input {
-        border: 1px solid red;
-    }
-
+.input {
+    input,
     textarea {
-        border: 1px solid red;
+        height: 45px;
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #e0e0e0;
+        resize: none;
     }
 }
+
 .error {
+    input,
+    textarea {
+        border-color: #D43728;
+        background-color: rgba(212, 55, 40, 0.2);
+    }
+
     span {
         color: red;
     }
