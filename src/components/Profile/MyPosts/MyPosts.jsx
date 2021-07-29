@@ -32,12 +32,12 @@ const MyPosts = React.memo(props => {
 
     return (
         <div className={MyPostsStyles.myPosts}>
-            <h2>My Posts</h2>
-            <AddPostFormRedux onSubmit={onAddPost}/>
+              <h2>Posts</h2>
+              <AddPostFormRedux onSubmit={onAddPost}/>
 
-            <div className='mt-30'>
+              <div className='mt-30'>
                 {postsElements}
-            </div>
+              </div>
         </div>
     )
 });

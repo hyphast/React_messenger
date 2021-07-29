@@ -1,6 +1,7 @@
 import {followAPI, profileAPI} from "../api/api";
 import { DateTime } from "luxon";
 import { nanoid } from 'nanoid'
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'profile/ADD_POST';
 const DELETE_POST = 'profile/DELETE_POST';
@@ -12,10 +13,7 @@ const SET_FOLLOWING = 'profile/SET_FOLLOWING';
 const SET_PHOTO = 'profile/SET_PHOTO';
 
 let stateInitial = {
-    postsData: [
-        {id: 1, post: 'My first post', date: 'Posted: 12:15', likesCount: 2, liked: true},
-        {id: 2, post: 'Hi', date: 'Posted: 18:54', likesCount: 7, liked: false},
-        {id: 3, post: 'Hello', date: 'Posted: 09:32', likesCount: 1, liked: false},],
+    postsData: [],
     profile: null,
     isFetching: false,
     status: '',
@@ -137,9 +135,14 @@ export const getUserStatus = (userId) =>
 
 export const updateUserStatus = (status) =>
     async (dispatch) => {
-        const data = await profileAPI.updateStatus(status)
-        if (data.resultCode === 0) {
-            dispatch(setUserStatus(status));
+        try {
+            const data = await profileAPI.updateStatus(status)
+            if (data.resultCode === 0) {
+                dispatch(setUserStatus(status));
+            }
+        }
+        catch (error) {
+            alert(error);
         }
     }
 
@@ -166,10 +169,37 @@ export const setUserUnfollow = (userId) =>
     }
 
 export const savePhoto = (photo) =>
-  async (dispatch) => {
+  async (dispatch, getState) => {
     const data = await profileAPI.savePhoto(photo)
       if(data.resultCode === 0) {
           dispatch(savePhotoSuccess(photo))
+          const userId = getState().auth.userId;
+          dispatch(getUserProfile(userId))
+      }
+  }
+
+export const saveProfile = (profile) =>
+  async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const data = await profileAPI.saveProfile(profile)
+      if(data.resultCode === 0) {
+          dispatch(getUserProfile(userId))
+      } else {
+          let regexp = new RegExp("\\(.+\\)", "gi");
+          let contactsObj = {};
+          let mainObj = {};
+          data.messages.map((item, i) => {
+              let errorField = item.match(regexp).join("").replace(/->/, ".").slice(1, -1);
+              if(errorField.includes('Contacts')) {
+                  let contact = errorField.slice(9);
+                  contact = contact[0].toLowerCase() + contact.slice(1);
+                  contactsObj[contact] = `Invalid url format: ${contact}`;
+              } else {
+                  errorField = errorField[0].toLowerCase() + errorField.slice(1);
+                  mainObj[errorField] = data.messages[i];
+              }
+          })
+          dispatch(stopSubmit("editProfileForm", {'contacts': contactsObj, ...mainObj}));
       }
   }
 

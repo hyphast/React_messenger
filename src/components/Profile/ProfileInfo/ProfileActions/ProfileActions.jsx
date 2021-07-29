@@ -1,28 +1,29 @@
 import React from "react";
 import ProfileInfoStyles from "../ProfileInfo.module.scss";
 import Button from "../../../Common/Button/Button";
-import Icon from "../../../Common/Icon/Icon";
 import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
-import {savePhoto, setUserFollow, setUserUnfollow} from "../../../../redux/profileReducer";
-import Modal from "../../../Common/Modal/Modal";
+import {savePhoto, saveProfile, setUserFollow, setUserUnfollow} from "../../../../redux/profileReducer";
+import {EditPhotoModal} from "./EditPhotoModal";
+import EditInfoModal from "./EditInfoModal";
 
 class ProfileActions extends React.Component {
   state = {
-    isOpen: false
+    isOpenEditPhoto: false,
+    isOpenEditInfo: false
   }
 
-  toggleEdit = () => {
+  toggleEditPhoto = () => {
+    debugger
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpenEditPhoto: !this.state.isOpenEditPhoto
     })
   }
 
-  onPhotoSelected = (e) => {
-    debugger
-    if (e.target.files.length) {
-      this.props.savePhoto(e.target.files[0])
-    }
+  toggleEditInfo = () => {
+    this.setState({
+      isOpenEditInfo: !this.state.isOpenEditInfo
+    })
   }
 
   render() {
@@ -37,14 +38,17 @@ class ProfileActions extends React.Component {
               }
             </div>
           :
-          <div className={ProfileInfoStyles.btn}>
-            <Button onClick={this.toggleEdit}>
-              Edit profile photo
-              <Icon className={ProfileInfoStyles.editIcon} name={faEdit}/>
-            </Button>
-            <Modal title='Edit profile photo' isOpen={this.state.isOpen} onCancel={this.toggleEdit} onSubmit={this.toggleEdit}>
-              <input type='file' onChange={this.onPhotoSelected}/>
-            </Modal>
+          <div>
+              <EditPhotoModal
+                text='Edit profile photo' onClick={this.toggleEditPhoto} iconName={faEdit}
+                modalTitle='Edit profile photo' isOpen={this.state.isOpenEditPhoto} onCancel={this.toggleEditPhoto}
+                savePhoto={ this.props.savePhoto }
+              />
+              <EditInfoModal
+                text='Edit profile info' onClick={this.toggleEditInfo} iconName={faEdit}
+                modalTitle='Edit profile info' isOpen={this.state.isOpenEditInfo} onCancel={this.toggleEditInfo}
+                profile={this.props.profile} saveProfile={this.props.saveProfile}
+              />
           </div>
         }
       </>
@@ -59,4 +63,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { setUserFollow, setUserUnfollow, savePhoto })(ProfileActions);
+export default connect(mapStateToProps, { setUserFollow, setUserUnfollow, savePhoto, saveProfile })(ProfileActions);

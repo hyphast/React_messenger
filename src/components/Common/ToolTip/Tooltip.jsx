@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './ToolTip.scss';
+import './Tooltip.scss';
 
 class Tooltip extends Component {
     static propTypes = {
@@ -10,12 +10,14 @@ class Tooltip extends Component {
         content: PropTypes.string,
         position: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
         style: PropTypes.objectOf(PropTypes.string),
+        contentEmpty: PropTypes.string
     }
 
     static defaultProps = {
         content: 'Tooltip content',
         style: {},
-        position: 'top'
+        position: 'top',
+        contentEmpty: 'Tooltip content'
     }
 
     state = {
@@ -36,7 +38,7 @@ class Tooltip extends Component {
 
     render() {
         const { visible } = this.state;
-        const { children, content, style, position } = this.props;
+        const { children, content, contentEmpty, style, position } = this.props;
 
         const classes = classNames(
             'tooltip',
@@ -45,7 +47,7 @@ class Tooltip extends Component {
 
         return (
             <span className="tooltipWrapper">
-        { visible && <span style={style} className={classes}>{content}</span> }
+        { visible && <span style={style} className={classes}>{!content ? contentEmpty : content}</span> }
                 <span
                     className="targetElement"
                     onMouseEnter={this.show}

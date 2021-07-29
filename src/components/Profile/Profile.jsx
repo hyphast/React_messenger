@@ -10,7 +10,7 @@ const Profile = ({
                 profile={profile} status={status} updateUserStatus={updateUserStatus} isOwner={isOwner}
             />
 
-            <MyPostsContainer />
+            <MyPostsContainer/>
         </div>
     )
 }

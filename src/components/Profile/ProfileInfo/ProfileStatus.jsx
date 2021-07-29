@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ProfileInfoStyles from './ProfileInfo.module.scss';
-import ToolTip from "../../Common/ToolTip/ToolTip";
+import ToolTip from "../../Common/ToolTip/Tooltip";
 
 export const ProfileStatus = (props) => {
     let [editMode, setEditMode] = useState(false);
@@ -24,7 +24,7 @@ export const ProfileStatus = (props) => {
     return (
       <>
       {!props.isOwner
-        ? <span className={!props.status && ProfileInfoStyles.status}>props.status</span>
+        ? <span className={!props.status && ProfileInfoStyles.status}>{props.status}</span>
         :
         <div>
             {!editMode

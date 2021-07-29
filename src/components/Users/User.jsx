@@ -28,8 +28,8 @@ const User = ({
             <p>{user.status}</p>
         </div>
         <div className={UsersStyles.loc}>
-            <p>{"user.location.country"}</p>
-            <p>{"user.location.city"}</p>
+            <p>Russia</p>
+            <p>Moscow</p>
         </div>
     </div>
    )

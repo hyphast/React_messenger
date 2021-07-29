@@ -43,6 +43,11 @@ export const profileAPI = {
         }).then(response => {
             return response.data;
         })
+    },
+    saveProfile(profile) {
+        return instance.put('/profile', profile).then(response => {
+            return response.data;
+        })
     }
 }
 
@@ -52,14 +57,22 @@ export const logAPI = {
             return response.data
         })
     },
-    login(email, password, rememberMe) {
-        return instance.post('/auth/login', {email, password, rememberMe}).then(response => {
+    login(email, password, rememberMe, captcha) {
+        return instance.post('/auth/login', {email, password, rememberMe, captcha}).then(response => {
             return response.data
         })
     },
     logout() {
         return instance.delete('/auth/login').then(response => {
             return response.data
+        })
+    }
+}
+
+export const securityAPI = {
+    getCaptchaUrl() {
+        return instance.get('/security/get-captcha-url').then(response => {
+            return response.data;
         })
     }
 }
